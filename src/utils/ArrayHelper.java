@@ -1,6 +1,10 @@
 package utils;
 
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class ArrayHelper {
 
     public <T extends Comparable<T>> T getMinValue(T[] array){
@@ -70,6 +74,8 @@ public class ArrayHelper {
     /*
     public <T> T[] addItem(T[] array, T item)
     {
+        //List<T> arrayList = Arrays.asList(array);
+
         //dunno how to make this work
         //int resultArrayLength = array.length+1;
         T[] result = new T[array.length+1];
