@@ -227,6 +227,47 @@ public class ArrayHelperTest {
     }
 
     /*
+        1. array is empty => new array should contain one element, equal to provided item
+        2. array is not empty => new array should contain one element more than original array, last item should be equal to provided
+     */
+
+    @Test
+    public void addItemInt_WhenArrayIsEmpty_ThenReturnArrayWithOneItemEqualToProvided(){
+        //Arrange
+        ArrayHelper arrayHelper = new ArrayHelper();
+        Integer[] emptyArray = new Integer[0];
+        Integer newItem = 10;
+
+        //Act
+        Integer[] result = arrayHelper.addItemInt(emptyArray,newItem);
+
+        //Assert
+        Assertions.assertEquals(result.length,1);
+        Assertions.assertEquals(result[0],newItem);
+    }
+
+    @Test
+    public void addItemInt_WhenArrayIsNotEmpty_ThenReturnArrayWithOneMoreItemEqualToProvided(){
+        //Arrange
+        ArrayHelper arrayHelper = new ArrayHelper();
+        Integer[] notEmptyArray = new Integer[3];
+        notEmptyArray[0] = 1;
+        notEmptyArray[1] = 5;
+        notEmptyArray[2] = 3;
+        Integer newItem = 10;
+
+        //Act
+        Integer[] result = arrayHelper.addItemInt(notEmptyArray,newItem);
+
+        //Assert
+        Assertions.assertEquals(result.length,notEmptyArray.length+1);
+        Assertions.assertEquals(result[result.length-1],newItem);
+        Assertions.assertEquals(result[0],notEmptyArray[0]);
+        Assertions.assertEquals(result[1],notEmptyArray[1]);
+        Assertions.assertEquals(result[2],notEmptyArray[2]);
+    }
+
+    /*
     @Test
     public void addItem_WhenArrayIsEmpty_ThenReturnArrayWithItemAtLastPosition(){
         //Arrange

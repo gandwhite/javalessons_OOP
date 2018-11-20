@@ -1,6 +1,8 @@
 package utils;
 
 
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -70,6 +72,18 @@ public class ArrayHelper {
         return itemPosition;
     }
 
+    public Integer[] addItemInt(Integer[] array, int item)
+    {
+        //throw new NotImplementedException();
+
+        Integer[] newArray = new Integer[array.length+1];
+        for (int i = 0; i < array.length; i++){
+            newArray[i] = array[i];
+        }
+        newArray[newArray.length-1] = item;
+
+        return newArray;
+    }
 
     /*
     public <T> T[] addItem(T[] array, T item)
@@ -78,6 +92,7 @@ public class ArrayHelper {
 
         //dunno how to make this work
         //int resultArrayLength = array.length+1;
+        T result2 = new T();
         T[] result = new T[array.length+1];
         //T result2[resultArrayLength];
         for (int i = 0; i < array.length; i++) {
